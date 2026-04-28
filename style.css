@@ -1,0 +1,430 @@
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= HEADER ================= */
+.logo img {
+  height: 70px;
+  padding-left: 20px;
+  border-radius: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #19355b;
+  color: white;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.manu-bar ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.manu-bar li {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.manu-bar button {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  border: none;
+  background: #d99d26;
+  color: white;
+  cursor: pointer;
+}
+
+/* ================= HERO ================= */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+
+  background:
+    linear-gradient(rgba(83, 100, 122, 0.6), rgba(32, 55, 79, 0.6)),
+    url("https://gohighlevel-templates-starter.lovable.app/assets/hero-bg-Dx0oyPz1.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+}
+
+.hero button {
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-top: 20px;
+  color: white;
+  border: 1px solid #d99d26;
+  background: transparent;
+}
+
+.hero h1 {
+  font-size: 45px;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.hero span {
+  color: #d99d26;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 20px auto;
+  font-size: 20px;
+}
+
+/* buttons */
+.btn {
+  margin-top: 20px;
+}
+
+.btn button {
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 25px;
+  background-color: #d99d26;
+  border: none;
+  cursor: pointer;
+}
+
+.btn .black {
+  background-color: white;
+  color: black;
+}
+
+/* ✅ players fix (MAIN ISSUE) */
+.players {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.players-1 {
+  text-align: center;
+}
+
+.players-1 h1 {
+  font-size: 40px;
+}
+
+/* ================= WHAT WE DO ================= */
+.What-We-Do {
+  text-align: center;
+  margin-top: 70px;
+  padding: 0 20px;
+}
+
+.What-We-Do h1 {
+  font-size: 40px;
+}
+
+.What-We-Do span {
+  color: #d99d26;
+}
+
+.What-We-Do h6 {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* skills */
+.skill,
+.skill-2 {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skill-1 {
+  background-color: aquamarine;
+  padding: 15px 25px;
+  border-radius: 10px;
+}
+
+.skill-1 span {
+  font-size: 35px;
+}
+
+/* ================= SERVICES ================= */
+.dis {
+  background-color: #16325a;
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+  padding: 40px 20px;
+}
+
+.dis p {
+  color: #9fc2ce;
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+.dis h1 {
+  font-size: 40px;
+}
+
+.dis span {
+  color: #d99d26;
+}
+.all-ball {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.ball {
+  background-color: #19355b;
+  color: white;
+  padding: 20px;
+  border: 2px solid #d99d26;
+  border-radius: 30px;
+  width: 300px;
+}
+.ball h2 {
+  margin-top: 10px;
+}
+.who-its-for {
+  text-align: center;
+  margin-top: 70px;
+  padding: 0 20px;
+}
+.who-its-for span {
+  color: #d99d26;
+}
+.who-its-for p {
+  color: #d99d26;
+  max-width: 500px;
+  margin: 10px auto;
+}
+.who-its-for p {
+  color: #627084;
+  max-width: 500px;
+  margin: 10px auto;
+}
+/* Price */
+.pricing {
+  background-color: rgb(223, 195, 195);
+  padding: 40px 20px;
+  border-radius: 20px;
+}
+.pricing h1 span {
+  color: #d99d26;
+  font-size: 19px;
+}
+.tikmark {
+  display: flex;
+}
+button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  border: none;
+  background: #d99d26;
+  color: white;
+  cursor: pointer;
+}
+.all-pricing {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.most-pricing {
+  background-color: #19355b;
+  padding: 40px 20px;
+  border-radius: 20px;
+}
+.most-pricing h4 {
+  color: white;
+}
+.most-pricing h1 {
+  color: wheat;
+}
+.most-pricing .one {
+  color: #3ccb14;
+  font-size: 19px;
+}
+.most-pricing h5 {
+  background-color: #d99d26;
+  color: black;
+  border-radius: 30px;
+  padding: 5px;
+  text-align: center;
+  margin-top: -49px;
+}
+.most-pricing p {
+  color: #9fc2ce;
+}
+.pricing p {
+  color: rgb(101, 90, 90);
+}
+/* training */
+.training .left .icon {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 8px 0;
+}
+
+.training h6 {
+  color: #d99d26;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.training h2 {
+  font-size: 33px;
+  font-weight: 900;
+  padding: 16px 0;
+  color: white;
+}
+
+.training h2 span {
+  color: #d99d26;
+}
+
+.training p {
+  color: rgb(201, 201, 201);
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.training .left .Serving {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.training .left .icon span {
+  color: #d89d26;
+  background-color: #344353;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.training .left .Serving p {
+  background-color: #213f6a;
+  padding: 7px 7px;
+  border-radius: 30px;
+  font-size: 14px;
+  text-align: center;F
+}
+
+.training .left .head {
+  padding: 15px 0;
+}
+
+.training {
+  display: flex;
+  gap: 450px;
+  background-color: #19355b;
+
+  padding: 50px;
+  margin-top: 20px;
+}
+
+.training .right .input-flex {
+  display: flex;
+  gap: 15px;
+  padding: 0px 0;
+}
+
+.training .right .input-flex label {
+  color: rgb(189, 189, 189);
+  font-size: 13px;
+}
+
+.training .right .input-flex input {
+  padding: 8px 10px 8px 8px;
+  background-color: #19355e;
+  border: 1px solid #23416c;
+  border-radius: 7px;
+  margin-top: 5px;
+}
+
+.training .right .input input {
+  padding: 8px 215px 8px 8px;
+  background-color: #19355e;
+  border: 1px solid #23416c;
+  border-radius: 7px;
+  margin: 5px 0;
+}
+.mass {
+  padding: 8px 215px 8px 8px;
+  background-color: #19355e;
+  border: 1px solid #23416c;
+  border-radius: 7px;
+  margin: 5px 0;
+}
+.training .right .input label {
+  color: rgb(189, 189, 189);
+  font-size: 13px;
+}
+.batton button {
+  padding: 10px 120px;
+  border-radius: 20px;
+  font-size: 16px;
+  border: none;
+  background: #d99d26;
+  color: white;
+  cursor: pointer;
+}
+.footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+   text-align: center;
+}
+.footer-2 ul {
+  display: flex;
+  gap: 35px;
+
+  list-style-type: none;
+  flex-wrap: wrap;
+}
+/* /* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .manu-bar ul {
+    justify-content: center;
+  }
+
+  .players-1 h1 {
+    font-size: 30px;
+  }
+  
+} */
+        
