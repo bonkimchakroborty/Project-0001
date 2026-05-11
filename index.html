@@ -3,320 +3,1110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Document</title>
+    <title>Soccer Skills Academy</title>
+    
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+      /* ================= RESET & VARIABLES ================= */
+      :root {
+        --primary-blue: #19355b;
+        --secondary-blue: #213f6a;
+        --accent-gold: #d99d26;
+        --accent-gold-hover: #b88620;
+        --text-light: #f4f4f4;
+        --text-dark: #333333;
+        --text-muted: #627084;
+        --bg-light: #f9fafb;
+        --font-heading: 'Montserrat', sans-serif;
+        --font-body: 'Open Sans', sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--text-dark);
+        line-height: 1.6;
+        background-color: var(--bg-light);
+        overflow-x: hidden;
+      }
+
+      a { text-decoration: none; color: inherit; }
+      ul { list-style: none; }
+      
+      button {
+        font-family: var(--font-heading);
+        transition: all 0.3s ease;
+      }
+
+      /* ================= HEADER ================= */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: var(--primary-blue);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+      }
+
+      .logo img {
+        height: 60px;
+        border-radius: 12px;
+        object-fit: cover;
+      }
+
+      .menu-toggle {
+        display: none;
+        color: white;
+        font-size: 32px;
+        cursor: pointer;
+      }
+
+      .menu-bar ul {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .menu-bar li {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .menu-bar li:hover {
+        color: var(--accent-gold);
+      }
+
+      .menu-bar button {
+        padding: 10px 25px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        border: none;
+        background: var(--accent-gold);
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(217, 157, 38, 0.3);
+      }
+
+      .menu-bar button:hover {
+        background: var(--accent-gold-hover);
+        transform: translateY(-2px);
+      }
+
+      /* ================= HERO SECTION ================= */
+      .hero {
+        text-align: center;
+        padding: 100px 20px 80px;
+        background: 
+          linear-gradient(rgba(25, 53, 91, 0.85), rgba(25, 53, 91, 0.7)),
+          url("https://picsum.photos/seed/soccerfield/1920/1080");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: white;
+        position: relative;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        padding: 8px 20px;
+        border-radius: 50px;
+        border: 1px solid var(--accent-gold);
+        color: var(--accent-gold);
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        background: rgba(217, 157, 38, 0.1);
+      }
+
+      .hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 900;
+        line-height: 1.1;
+        max-width: 900px;
+        margin: 0 auto 20px;
+      }
+
+      .hero span {
+        color: var(--accent-gold);
+        display: block; /* Force wrap for impact on mobile if needed */
+      }
+
+      .hero p {
+        max-width: 700px;
+        margin: 0 auto 40px;
+        font-size: 1.25rem;
+        color: rgba(255,255,255,0.9);
+      }
+
+      .hero-btns {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary, .btn-secondary {
+        padding: 15px 35px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .btn-primary {
+        background-color: var(--accent-gold);
+        color: white;
+        border: none;
+        box-shadow: 0 4px 15px rgba(217, 157, 38, 0.4);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--accent-gold-hover);
+        transform: translateY(-3px);
+      }
+
+      .btn-secondary {
+        background-color: white;
+        color: var(--primary-blue);
+        border: none;
+      }
+
+      .btn-secondary:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-3px);
+      }
+
+      /* Hero Stats */
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 80px;
+        flex-wrap: wrap;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .stat-item h3 {
+        font-size: 48px;
+        font-weight: 900;
+        color: var(--accent-gold);
+        line-height: 1;
+      }
+
+      .stat-item p {
+        font-size: 16px;
+        margin-top: 5px;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* ================= SECTION COMMON ================= */
+      section {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-header p {
+        color: var(--accent-gold);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .section-header h2 {
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 4vw, 2.5rem);
+        color: var(--primary-blue);
+        margin-bottom: 20px;
+      }
+
+      .section-header h2 span {
+        color: var(--accent-gold);
+      }
+
+      .section-header p.description {
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 18px;
+      }
+
+      /* ================= WHAT WE DO ================= */
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .skill-card {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        transition: transform 0.3s;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .icon-box {
+        background: rgba(217, 157, 38, 0.1);
+        color: var(--accent-gold);
+        padding: 15px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .icon-box .material-symbols-outlined {
+        font-size: 32px;
+      }
+
+      .skill-card h3 {
+        font-family: var(--font-heading);
+        color: var(--primary-blue);
+        margin-bottom: 5px;
+      }
+
+      .skill-card p {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      /* ================= PROGRAMS ================= */
+      .programs-section {
+        background-color: var(--secondary-blue);
+        color: white;
+        width: 100%;
+        max-width: 100%; /* Full width background */
+      }
+      
+      .programs-section .section-header p { color: #9fc2ce; }
+      .programs-section .section-header h2 { color: white; }
+
+      .programs-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .program-card {
+        background-color: var(--primary-blue);
+        border: 1px solid rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 20px;
+        width: 300px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .program-card:hover {
+        border-color: var(--accent-gold);
+        transform: scale(1.02);
+      }
+
+      .program-card .material-symbols-outlined {
+        font-size: 40px;
+        color: var(--accent-gold);
+        margin-bottom: 20px;
+      }
+
+      .program-card h3 {
+        font-family: var(--font-heading);
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      .program-card p {
+        font-size: 14px;
+        color: #d1d5db;
+      }
+
+      /* ================= WHO IT'S FOR ================= */
+      .who-banner {
+        text-align: center;
+        background-color: white;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+      }
+
+      /* ================= PRICING ================= */
+      .pricing-grid {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .price-card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 24px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        flex: 1;
+        min-width: 300px;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .price-card.featured {
+        background: var(--primary-blue);
+        color: white;
+        transform: scale(1.05);
+        border: 2px solid var(--accent-gold);
+        z-index: 2;
+      }
+
+      .popular-badge {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent-gold);
+        color: black;
+        padding: 5px 20px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .price-header h4 {
+        font-size: 18px;
+        color: var(--text-muted);
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+      
+      .featured .price-header h4 { color: #9fc2ce; }
+
+      .price {
+        margin-bottom: 30px;
+      }
+
+      .price h1 {
+        font-size: 42px;
+        font-weight: 900;
+        font-family: var(--font-heading);
+        color: var(--primary-blue);
+      }
+
+      .featured .price h1 { color: white; }
+
+      .price span {
+        font-size: 14px;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+      
+      .featured .price span { color: #9fc2ce; }
+
+      .features-list {
+        margin-bottom: 30px;
+        flex-grow: 1;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        color: var(--text-dark);
+      }
+
+      .featured .feature-item { color: white; }
+
+      .feature-item .material-symbols-outlined {
+        color: #3ccb14;
+        font-size: 20px;
+      }
+
+      .price-card button {
+        width: 100%;
+        padding: 15px;
+        border-radius: 12px;
+        border: none;
+        background: var(--accent-gold);
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      
+      .featured button { background: white; color: var(--primary-blue); }
+      .featured button:hover { background: #f0f0f0; }
+
+      /* ================= CONTACT/FOOTER ================= */
+      .contact-section {
+        background-color: var(--primary-blue);
+        color: white;
+        padding: 80px 20px;
+        margin-top: 0;
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 60px;
+      }
+
+      .contact-info {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .contact-info h6 {
+        color: var(--accent-gold);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 15px;
+      }
+
+      .contact-info h2 {
+        font-family: var(--font-heading);
+        font-size: 32px;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .info-row {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .info-row .material-symbols-outlined {
+        background: rgba(255,255,255,0.1);
+        padding: 8px;
+        border-radius: 50%;
+        font-size: 20px;
+        color: var(--accent-gold);
+      }
+
+      .locations-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+      }
+
+      .location-tag {
+        background: var(--secondary-blue);
+        padding: 8px 15px;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .contact-form-wrapper {
+        flex: 1;
+        min-width: 300px;
+        background: var(--secondary-blue);
+        padding: 40px;
+        border-radius: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 15px;
+      }
+
+      .form-row .form-group {
+        flex: 1;
+      }
+
+      label {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #9fc2ce;
+        margin-bottom: 5px;
+      }
+
+      input, textarea {
+        width: 100%;
+        padding: 12px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 8px;
+        color: white;
+        font-family: var(--font-body);
+      }
+
+      input:focus, textarea:focus {
+        outline: none;
+        border-color: var(--accent-gold);
+        background: rgba(255,255,255,0.1);
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background: var(--accent-gold);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #0d1b2a;
+        color: #8892b0;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-gold);
+      }
+
+      /* ================= RESPONSIVE ================= */
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        .menu-bar {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: var(--primary-blue);
+          padding: 20px;
+          border-top: 1px solid rgba(255,255,255,0.1);
+          display: none; /* Hidden by default on mobile */
+        }
+
+        .menu-bar.active {
+          display: block;
+        }
+
+        .menu-bar ul {
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .hero {
+          padding: 60px 20px;
+        }
+
+        .hero-stats {
+          gap: 30px;
+        }
+
+        .price-card.featured {
+          transform: scale(1); /* Reset scale on mobile */
+        }
+        
+        .form-row {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .contact-container {
+          flex-direction: column;
+        }
+        
+        .locations-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
+    
     <!-- Header -->
-    <nav>
-      <div class="logo">
-        <img src="/image/imgi_1_logo-C0C_yYb3.jpg" alt />
-      </div>
-      <div class="manu-bar">
-        <ul>
-          <li>About</li>
-          <li>Programs</li>
-          <li>Who It's For</li>
-          <li>Pricing</li>
-          <li>Contact</li>
-          <button>Book a Trial</button>
-        </ul>
-      </div>
-    </nav>
-    <!-- Hero-section -->
-    <div class="hero">
-      <button>GTA's Premier Youth Training</button>
+    <header>
+      <nav>
+        <div class="logo">
+          <!-- Placeholder for your actual logo image -->
+          <img src="https://picsum.photos/seed/soccerlogo/100/100" alt="Soccer Skills Academy Logo" />
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="material-symbols-outlined">menu</span>
+        </div>
+        <div class="menu-bar" id="nav-links">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button>Book a Trial</button></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">GTA's Premier Youth Training</div>
       <h1>More Touches. <span>More Confidence.</span> More Improvement.</h1>
       <p>
         Small-group technical soccer training for youth players ages 7–15.
         Focused skill development that builds real confidence on the ball.
       </p>
-      <div class="btn">
-        <button>Book a Free Trial</button>
-        <button class="black">View Programs</button>
+      <div class="hero-btns">
+        <button class="btn-primary">Book a Free Trial</button>
+        <button class="btn-secondary">View Programs</button>
       </div>
-      <div class="players">
-        <div class="players-1">
-          <h1>6–8</h1>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <h3>6–8</h3>
           <p>Players Per Group</p>
         </div>
-        <div class="players-1">
-          <h1>8</h1>
+        <div class="stat-item">
+          <h3>8</h3>
           <p>Week Programs</p>
         </div>
-        <div class="players-1">
-          <h1>7–15</h1>
+        <div class="stat-item">
+          <h3>7–15</h3>
           <p>Age Range</p>
         </div>
       </div>
-    </div>
-    <!-- main -->
-    <div class="What-We-Do">
-      <p>What We Do</p>
-      <h1>Skill-Building, <span>Not Politics</span></h1>
-      <h6>
-        Soccer Skills Academy is a small-group soccer training program focused
-        on technical development for youth players. This is not a travel team.
-        Not a league. Not a high-pressure elite academy. This is where players
-        get more touches, more reps, and more confidence.
-      </h6>
+    </section>
 
-      <div class="skill">
-        <div class="skill-1">
-          <span class="material-symbols-outlined"> target </span>
-          <p>Ball Control</p>
+    <!-- What We Do -->
+    <section id="about">
+      <div class="section-header">
+        <p>What We Do</p>
+        <h2>Skill-Building, <span>Not Politics</span></h2>
+        <p class="description">
+          Soccer Skills Academy is a small-group soccer training program focused
+          on technical development for youth players. This is not a travel team.
+          Not a league. Not a high-pressure elite academy. This is where players
+          get more touches, more reps, and more confidence.
+        </p>
+      </div>
+
+      <div class="skill-grid">
+        <!-- Row 1 -->
+        <div class="skill-card">
+          <div class="icon-box">
+            <span class="material-symbols-outlined">target</span>
+          </div>
+          <div>
+            <h3>Ball Control</h3>
+            <p>Mastering close control and keeping possession under pressure.</p>
+          </div>
         </div>
-        <div class="skill-1">
-          <span class="material-symbols-outlined"> bolt </span>
-          <p>Dribbling & Footwork</p>
+        <div class="skill-card">
+          <div class="icon-box">
+            <span class="material-symbols-outlined">bolt</span>
+          </div>
+          <div>
+            <h3>Dribbling & Footwork</h3>
+            <p>Developing quick feet and advanced moves to beat defenders.</p>
+          </div>
         </div>
-        <div class="skill-1">
-          <span class="material-symbols-outlined"> group </span>
-          <p>Passing & First Touch</p>
+        <div class="skill-card">
+          <div class="icon-box">
+            <span class="material-symbols-outlined">group</span>
+          </div>
+          <div>
+            <h3>Passing & First Touch</h3>
+            <p>Clean receiving techniques and accurate distribution.</p>
+          </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="skill-card">
+          <div class="icon-box">
+            <span class="material-symbols-outlined">sports_soccer</span> <!-- Changed icon to relevant one -->
+          </div>
+          <div>
+            <h3>Shooting Technique</h3>
+            <p>Proper form for power, placement, and finishing.</p>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="icon-box">
+            <span class="material-symbols-outlined">psychology</span> <!-- Changed icon to relevant one -->
+          </div>
+          <div>
+            <h3>Game Awareness</h3>
+            <p>Reading the field and making smarter decisions.</p>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="icon-box">
+            <span class="material-symbols-outlined">favorite</span>
+          </div>
+          <div>
+            <h3>Confidence on the Ball</h3>
+            <p>Building the mental aspect of the game through success.</p>
+          </div>
         </div>
       </div>
-      <div class="skill-2">
-        <div class="skill-1">
-          <span class="material-symbols-outlined"> trophy </span>
-          <p>Shooting Technique</p>
+    </section>
+
+    <!-- Programs -->
+    <div id="programs" class="programs-section">
+      <section>
+        <div class="section-header">
+          <p>Our Programs</p>
+          <h2>8-Week <span>Skill Blocks</span></h2>
+          <p class="description">
+            Each block focuses on a specific theme. Players enroll in structured
+            cycles that build progressively.
+          </p>
         </div>
-        <div class="skill-1">
-          <span class="material-symbols-outlined"> neurology </span>
-          <p>Game Awareness</p>
+
+        <div class="programs-grid">
+          <div class="program-card">
+            <span class="material-symbols-outlined">footprint</span>
+            <h3>Ball Mastery</h3>
+            <p>Master close control, turns, and quick feet through progressive drills.</p>
+          </div>
+          <div class="program-card">
+            <span class="material-symbols-outlined">swap_horiz</span>
+            <h3>Passing & Touch</h3>
+            <p>Develop clean receiving and accurate distribution under pressure.</p>
+          </div>
+          <div class="program-card">
+            <span class="material-symbols-outlined">gps_fixed</span>
+            <h3>Shooting</h3>
+            <p>Learn proper technique for power, placement, and composure.</p>
+          </div>
+          <div class="program-card">
+            <span class="material-symbols-outlined">sports_martial_arts</span>
+            <h3>1v1 Attacking</h3>
+            <p>Build confidence in individual duels with attacking moves.</p>
+          </div>
+          <div class="program-card">
+            <span class="material-symbols-outlined">psychology</span>
+            <h3>Game IQ</h3>
+            <p>Read the game, make smarter choices, and play with purpose.</p>
+          </div>
         </div>
-        <div class="skill-1">
-          <span class="material-symbols-outlined"> favorite </span>
-          <p>Confidence on the Ball</p>
-        </div>
-      </div>
+      </section>
     </div>
-    <!-- services -->
-    <div class="dis">
-      <p>Our Programs</p>
-      <h1>8-Week <span>Skill Blocks</span></h1>
-      <p>
-        Each block focuses on a specific theme. Players enroll in structured
-        cycles that build progressively — 1 session per week, 60–75 minutes, in
-        groups of 6–8 players.
-      </p>
-      <div class="all-ball">
-        <div class="ball">
-          <span class="material-symbols-outlined"> footprint </span>
-          <h2>Ball Mastery & Footwork</h2>
-          <p>
-            Master close control, turns, and quick feet through progressive
-            drills.
-          </p>
-        </div>
-        <div class="ball">
-          <span class="material-symbols-outlined"> footprint </span>
-          <h2>Passing & First Touch</h2>
-          <p>
-            Develop clean receiving and accurate distribution under pressure.
-          </p>
-        </div>
-        <div class="ball">
-          <span class="material-symbols-outlined"> target </span>
-          <h2>Shooting & Finishing</h2>
-          <p>
-            Learn proper technique for power, placement, and composure in front
-            of goal.
-          </p>
-        </div>
-        <div class="ball">
-          <span class="material-symbols-outlined"> swords </span>
-          <h2>1v1 Attacking & Defending</h2>
-          <p>
-            Build confidence in individual duels with attacking moves and
-            defensive positioning.
-          </p>
-        </div>
-        <div class="ball">
-          <span class="material-symbols-outlined"> neurology </span>
-          <h2>Game IQ & Decision Making</h2>
-          <p>Read the game, make smarter choices, and play with purpose.</p>
-        </div>
-      </div>
-    </div>
+
     <!-- Who It's For -->
-    <div class="who-its-for">
-      <p>Who It's For</p>
-      <h1>Development, <span>Not Status</span></h1>
-      <p>
-        Accessible pricing designed to deliver maximum value. Every session is
-        focused, structured, and results-driven.
-      </p>
+    <div class="who-banner section">
+      <div class="section-header">
+        <p>Who It's For</p>
+        <h2>Development, <span>Not Status</span></h2>
+        <p class="description">
+          Accessible pricing designed to deliver maximum value. Every session is
+          focused, structured, and results-driven.
+        </p>
+      </div>
     </div>
+
     <!-- Pricing -->
-    <div class="all-pricing">
-      <div class="pricing">
-        <h4>Skill Block</h4>
-        <h1>$299 <span>per 8-week block</span></h1>
-        <div class="tikmark">
-          <span class="material-symbols-outlined"> check </span>
-          <p>1 session per week</p>
+    <section id="pricing">
+      <div class="pricing-grid">
+        <!-- Plan 1 -->
+        <div class="price-card">
+          <div class="price-header">
+            <h4>Skill Block</h4>
+          </div>
+          <div class="price">
+            <h1>$299</h1>
+            <span>per 8-week block</span>
+          </div>
+          <div class="features-list">
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>1 session per week</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>60-minute sessions</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>6–8 players per group</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>Structured curriculum</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>Progress tracking</p>
+            </div>
+          </div>
+          <button>Get Started</button>
         </div>
-        <div class="tikmark">
-          <span class="material-symbols-outlined"> check </span>
-          <p>60-minute sessions</p>
-        </div>
-        <div class="tikmark">
-          <span class="material-symbols-outlined"> check </span>
-          <p>6–8 players per group</p>
-        </div>
-        <div class="tikmark">
-          <span class="material-symbols-outlined"> check </span>
-          <p>Structured curriculum</p>
-        </div>
-        <div class="tikmark">
-          <span class="material-symbols-outlined"> check </span>
-          <p>Progress tracking</p>
-        </div>
-        <button>Get Started</button>
-      </div>
 
-      <div class="most-pricing">
-        <div class="most">
-          <h5>Most Popular</h5></div>
-        <div class="elit">
-          <h4>Elite Block</h4>
-          <h1>$499 <span class="one">per 8-week block</span></h1>
-          <div class="tikmark">
-            <span class="material-symbols-outlined"> check </span>
-            <p>1 session per week</p>
+        <!-- Plan 2 (Featured) -->
+        <div class="price-card featured">
+          <div class="popular-badge">Most Popular</div>
+          <div class="price-header">
+            <h4>Elite Block</h4>
           </div>
-          <div class="tikmark">
-            <span class="material-symbols-outlined"> check </span>
-            <p>75-minute sessions</p>
+          <div class="price">
+            <h1>$499</h1>
+            <span>per 8-week block</span>
           </div>
-          <div class="tikmark">
-            <span class="material-symbols-outlined"> check </span>
-            <p>6–8 players per group</p>
+          <div class="features-list">
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>1 session per week</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>75-minute sessions</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>6–8 players per group</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>Advanced curriculum</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>Skill assessment report</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>Priority enrollment</p>
+            </div>
           </div>
-          <div class="tikmark">
-            <span class="material-symbols-outlined"> check </span>
-            <p>Advanced curriculum</p>
-          </div>
-          <div class="tikmark">
-            <span class="material-symbols-outlined"> check </span>
-            <p>Skill assessment report</p>
-          </div>
-          <div class="tikmark">
-            <span class="material-symbols-outlined"> check </span>
-            <p>Priority enrollment</p>
-          </div>
-          <button>Get Started</button></div>
-      </div>
-      <div class="pricing">
-        <h4>Private Training</h4>
-        <h1>$85 <span>per season</span></h1>
-        <div class="tikmark">
-          <span class="material-symbols-outlined"> check </span>
-          <p>1-on-1 coaching</p>
+          <button>Get Started</button>
         </div>
-        <div class="tikmark">
-          <span class="material-symbols-outlined"> check </span>
-          <p>60-minute sessions</p>
-        </div>
-        <div class="tikmark">
-          <span class="material-symbols-outlined"> check </span>
-          <p>Custom training plan</p>
-        </div>
-        <div class="tikmark">
-          <span class="material-symbols-outlined"> check </span>
-          <p>Flexible scheduling</p>
-        </div>
-        <div class="tikmark">
-          <span class="material-symbols-outlined"> check </span>
-          <p>Video analysis</p>
-        </div>
-        <button>Get Started</button>
-      </div>
-    </div>
-    <!-- training -->
-    <div class="training">
-      <div class="left">
-        <h6>Get In Touch</h6>
-        <h2>Ready to <span>Start Training?</span></span></h2>
-      <p>Book a free trial session for your child and see the difference <br>
-        focused, small-group training makes.
-        Serving
-        communities across <br> the GTA..</p>
-      <div class="icon">
-        <span class="material-symbols-outlined">
-          pin_drop
-        </span>
-        <p>Greater Toronto Area, Ontario</p>
-      </div>
-      <div class="icon">
-        <span class="material-symbols-outlined">
-          call
-        </span>
-        <p>(416) 555-0123</p>
-      </div>
-      <div class="icon">
-        <span class="material-symbols-outlined">
-          mail
-        </span>
-        <p>info@soccerskillsacademy.ca</p>
-      </div>
-      <p class="head">Serving</p>
-      <div class="Serving">
-        <p>Vaughan</p>
-        <p>North York</p>
-        <p>Mississauga</p>
-        <p>Brampton</p>
-        <p>Scarborough</p>
-      </div>
-    </div>
-    <div class="right">
-      <div class="input-flex">
-        <div class="name">
-          <label for>PARENT NAME</label><br>
-          <input type="text" placeholder="Your name">
-        </div>
-        <div class="age">
-          <label for>PLAYER AGE</label><br>
-          <input type="text" placeholder="Your name">
-        </div>
-      </div>
-      <div class="input">
-        <div class="email">
-          <label for>EMAIL</label><br>
-          <input type="email" placeholder="Your email">
-        </div>
-        <div class="phone">
-          <label for>PHONE</label><br>
-          <input type="number" placeholder="(406)000.000">
-        </div>
-        <div class="messages">
-          <label for>MESSAGE</label><br>
-          <textarea class="mass" name id placeholder="message"></textarea>
-        </div>
-        <div class="batton">
-          <button>BOOK A FREE TRIAL</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Footer -->
-  <footer>
-    <div class="footer">
-      <div class="footer-1">
 
-        <p>&copy 2024 Soccer Skills Academy. All rights reserved.</p>
+        <!-- Plan 3 -->
+        <div class="price-card">
+          <div class="price-header">
+            <h4>Private Training</h4>
+          </div>
+          <div class="price">
+            <h1>$85</h1>
+            <span>per session</span>
+          </div>
+          <div class="features-list">
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>1-on-1 coaching</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>60-minute sessions</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>Custom training plan</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>Flexible scheduling</p>
+            </div>
+            <div class="feature-item">
+              <span class="material-symbols-outlined">check</span>
+              <p>Video analysis</p>
+            </div>
+          </div>
+          <button>Get Started</button>
+        </div>
       </div>
-      <div class="footer-2">
-        <ul>
-          <li>About</li>
-          <li>Programs</li>
-          <li>Pricing</li>
-          <li>Contact</li>
-        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <div id="contact" class="contact-section">
+      <div class="contact-container">
+        <!-- Left Side Info -->
+        <div class="contact-info">
+          <h6>Get In Touch</h6>
+          <h2>Ready to <span>Start Training?</span></h2>
+          <p>
+            Book a free trial session for your child and see the difference focused, small-group training makes.
+            Serving communities across the GTA.
+          </p>
+          
+          <div class="info-row">
+            <span class="material-symbols-outlined">pin_drop</span>
+            <p>Greater Toronto Area, Ontario</p>
+          </div>
+          <div class="info-row">
+            <span class="material-symbols-outlined">call</span>
+            <p>(416) 555-0123</p>
+          </div>
+          <div class="info-row">
+            <span class="material-symbols-outlined">mail</span>
+            <p>info@soccerskillsacademy.ca</p>
+          </div>
+
+          <div class="locations-head">
+            <p style="margin-top:20px; font-weight:700;">Areas We Serve:</p>
+          </div>
+          <div class="locations-grid">
+            <div class="location-tag">Vaughan</div>
+            <div class="location-tag">North York</div>
+            <div class="location-tag">Mississauga</div>
+            <div class="location-tag">Brampton</div>
+            <div class="location-tag">Scarborough</div>
+            <div class="location-tag">Markham</div>
+          </div>
+        </div>
+
+        <!-- Right Side Form -->
+        <div class="contact-form-wrapper">
+          <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');">
+            <div class="form-row">
+              <div class="form-group">
+                <label>PARENT NAME</label>
+                <input type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label>PLAYER AGE</label>
+                <input type="number" placeholder="e.g. 10" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>EMAIL</label>
+              <input type="email" placeholder="Your email" required>
+            </div>
+            <div class="form-group">
+              <label>PHONE</label>
+              <input type="tel" placeholder="(416) 555-0123" required>
+            </div>
+            <div class="form-group">
+              <label>MESSAGE</label>
+              <textarea rows="4" placeholder="Tell us about your player..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">BOOK A FREE TRIAL</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="copyright">
+          <p>&copy 2024 Soccer Skills Academy. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#programs">Programs</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navLinks = document.getElementById('nav-links');
+
+      mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        
+        // Toggle icon
+        const icon = mobileMenu.querySelector('span');
+        if (navLinks.classList.contains('active')) {
+          icon.textContent = 'close';
+        } else {
+          icon.textContent = 'menu';
+        }
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll('.menu-bar a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          mobileMenu.querySelector('span').textContent = 'menu';
+        });
+      });
+
+      // Simple sticky header effect on scroll
+      window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+          header.style.boxShadow = "0 4px 20px rgba(0,0,0,0.2)";
+        } else {
+          header.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+        }
+      });
+    </script>
   </body>
 </html>
